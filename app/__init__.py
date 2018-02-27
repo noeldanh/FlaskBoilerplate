@@ -40,4 +40,7 @@ def create_app(config_class=Config):
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
+    from app.book import bp as book_bp
+    app.register_blueprint(book_bp, url_prefix='/books')
+
     return app

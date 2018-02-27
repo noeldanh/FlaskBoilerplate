@@ -9,7 +9,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                {% if current_user.is_anonymous %}
                 <a class="navbar-brand" href="{{ url_for( 'main.index' )}}">Boiler Plate</a>
+                {% else %}
+                <a class="navbar-brand" href="{{ url_for( 'main.home' )}}">Boiler Plate</a>
+                {% endif %}
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">

@@ -1,4 +1,26 @@
 {% extends "base.html" %}
 {% block app_content %}
-<h1>I'm in the home page</h1>
+{% if current_user.is_authenticated %}
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Hi, {{ current_user.username }}</h1>
+    <a href="{{ url_for( 'book.add_book' )}}">Add Book Review</a>
+  </div>
+</div>
+
+
+<div>
+  <h3>Recent Book Reviews:</h3>
+  {% for book in books %}
+  <hr>
+    <div class="">
+      <h5>{{ book.title }}</h5>
+      <p>{{ book.author }}</p>
+      <p>{{ book.review }}</p>
+      <p>{{ book.rating }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+</div>
+{% endif %}
 {% endblock %}
