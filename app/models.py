@@ -1,6 +1,5 @@
 from flask import current_app
 from flask_login import UserMixin
-from hashlib import md5
 from app import db, login, bcrypt
 from datetime import datetime
 
@@ -27,12 +26,14 @@ def load_user(id):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    emails = db.Column(db.String(140))
+    phone = db.Column(db.String(140))
+    technician = db.Column(db.String(140))
+    # timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return '<Post {}>'.format(self.body)
+        return '<Post {}>'.format(self.emails)
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -10,14 +10,14 @@
 
 
 <div>
-  <h3>Recent Book Reviews:</h3>
+  <h3>Recent Post:</h3>
   {% for book in books %}
   <hr>
     <div class="">
-      <h5>{{ book.title }}</h5>
-      <p>{{ book.author }}</p>
-      <p>{{ book.review }}</p>
-      <p>{{ book.rating }}</p>
+      <h5>{{ book.emails }}</h5>
+      <p>{{ book.phone }}</p>
+      <p>{{ book.technician }}</p>
+      <!--<p>{{ book.rating }}</p>-->
     </div>
     <hr>
   {% endfor %}
